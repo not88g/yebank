@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>УЕБАНК - У Евы Банк</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #1f1f1f;
+        line-height: 1.6;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        font-size: 3em;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+    }
+    
+    .subtitle {
+        color: #666;
+        font-size: 1.1em;
+    }
+    
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 28px;
+        padding: 32px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    }
+    
+    .hero-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        text-align: center;
+        padding: 48px 32px;
+    }
+    
+    .hero-card h2 {
+        font-size: 2.5em;
+        margin-bottom: 16px;
+    }
+    
+    .hero-card .rate {
+        font-size: 4em;
+        font-weight: 700;
+        margin: 20px 0;
+    }
+    
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 16px;
+        color: #1f1f1f;
+        font-weight: 600;
+    }
+    
+    .small-text {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 12px;
+        font-style: italic;
+    }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .product-card {
+        background: white;
+        border-radius: 20px;
+        padding: 24px;
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+    
+    .product-card:hover {
+        border-color: #667eea;
+        box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+    }
+    
+    .product-title {
+        font-size: 1.5em;
+        font-weight: 600;
+        color: #667eea;
+        margin-bottom: 12px;
+    }
+    
+    .price {
+        font-size: 2em;
+        font-weight: 700;
+        color: #f5576c;
+        margin: 16px 0;
+    }
+    
+    .badge {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        margin: 8px 4px;
+    }
+    
+    .warning {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 16px;
+        margin: 16px 0;
+        border-radius: 8px;
+    }
+    
+    .contact-card {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        color: #1f1f1f;
+        text-align: center;
+        padding: 40px;
+    }
+    
+    .contact-number {
+        font-size: 4em;
+        font-weight: 700;
+        margin: 20px 0;
+    }
+    
+    /* Банковские карты */
+    .bank-card-container {
+        display: flex;
+        justify-content: center;
+        margin: 24px 0;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .bank-card {
+        position: relative;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .bank-card:hover {
+        transform: scale(1.05) rotate(2deg);
+    }
+    
+    .bank-card-ue {
+        width: 320px;
+        height: 320px;
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        position: relative;
+    }
+    
+    .bank-card-ue::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+    }
+    
+    .bank-card-ue .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        opacity: 0.3;
+    }
+    
+    .bank-card-ue .logo {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        font-size: 2.5em;
+        font-weight: 700;
+        color: white;
+        z-index: 2;
+    }
+    
+    .bank-card-kids {
+        width: 320px;
+        height: 335px;
+        background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+        position: relative;
+    }
+    
+    .bank-card-kids .logo {
+        position: absolute;
+        top: 20px;
+        left: 24px;
+        z-index: 2;
+    }
+    
+    .bank-card-kids .logo-ue {
+        color: white;
+        font-size: 2em;
+        font-weight: 700;
+    }
+    
+    .bank-card-kids .logo-kids {
+        color: #a78bfa;
+        font-size: 2em;
+        font-weight: 700;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    
+    .disney-ear {
+        position: absolute;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 50%;
+    }
+    
+    .disney-ear-left {
+        left: 20px;
+    }
+    
+    .disney-ear-right {
+        right: 20px;
+    }
+    
+    .bank-card-gold {
+        width: 320px;
+        height: 200px;
+        background: linear-gradient(135deg, #f9d423 0%, #ff4e50 50%, #f9d423 100%);
+        background-size: 200% 200%;
+        animation: goldShine 3s ease infinite;
+    }
+    
+    @keyframes goldShine {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+    .bank-card-gold .logo {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        font-size: 2.2em;
+        font-weight: 700;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+    }
+    
+    .fun-fact {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        border-radius: 20px;
+        padding: 20px;
+        margin: 16px 0;
+        border: 3px dashed #ff6b9d;
+    }
+    
+    .fun-fact-title {
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-bottom: 8px;
+        color: #c2185b;
+    }
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 2em;
+        }
+        
+        .hero-card h2 {
+            font-size: 1.8em;
+        }
+        
+        .hero-card .rate {
+            font-size: 3em;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+        }
+        
+        .grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .bank-card-ue,
+        .bank-card-kids,
+        .bank-card-gold {
+            width: 280px;
+        }
+        
+        .bank-card-kids {
+            height: 295px;
+        }
+        
+        .bank-card-gold {
+            height: 175px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>УЕБАНК</h1>
+            <p class="subtitle">У Евы Банк - Лучший. Наверное.</p>
+        </header>
+
+```
+    <!-- Кредитная ставка -->
+    <div class="card hero-card">
+        <h2>Маленькая годовая ставка кредита</h2>
+        <div class="rate">93%</div>
+        <p>Всего! Невероятное предложение!</p>
+        <div class="fun-fact" style="margin-top: 24px; background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.4);">
+            <p style="color: white; font-size: 0.95em;">📊 Для сравнения: в других банках всего 25%. Но зачем вам дешево, если можно дорого?</p>
+        </div>
+    </div>
+    
+    <!-- Слоган -->
+    <div class="card" style="text-align: center; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+        <h2 class="section-title">Лучший банк для бизнеса</h2>
+        <p style="font-size: 1.3em; margin-top: 16px;">В надежных руках.</p>
+        <p class="small-text">*Вы передаете свой бизнес ООО «ЕваЛэнд Услуги» за 0 рублей.</p>
+        <div class="fun-fact">
+            <div class="fun-fact-title">💼 Интересный факт:</div>
+            <p>98% наших клиентов довольны передачей бизнеса. Остальные 2% не смогли оставить отзыв по техническим причинам.</p>
+        </div>
+    </div>
+    
+    <!-- Карта УЕ -->
+    <div class="card">
+        <h2 class="section-title">Карточка УЕ</h2>
+        <p style="font-size: 1.2em; margin-bottom: 12px;">Лучшая. Наверное.</p>
+        
+        <div class="bank-card-container">
+            <div class="bank-card bank-card-ue">
+                <div class="logo">УЕ</div>
+                <svg class="wave" viewBox="0 0 1200 100" preserveAspectRatio="none">
+                    <path d="M0,50 Q300,0 600,50 T1200,50 L1200,100 L0,100 Z" fill="rgba(255,255,255,0.1)"/>
+                    <path d="M0,60 Q300,20 600,60 T1200,60 L1200,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/>
+                </svg>
+            </div>
+        </div>
+        
+        <p>Дебетовая карточка с бесплатным обслуживанием в размере <span style="color: #f5576c; font-weight: 600;">3000₽ в день</span>, если не тратить перед этим 800 миллионов.</p>
+        <p class="small-text">(если вы так сделаете, то снизим на 2990₽.)</p>
+        
+        <div class="fun-fact">
+            <div class="fun-fact-title">🎯 Лайфхак:</div>
+            <p>Просто потратьте 800 миллионов, и обслуживание будет стоить всего 10₽ в день! Это же практически бесплатно!</p>
+        </div>
+    </div>
+    
+    <!-- УЕKIDS -->
+    <div class="card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+        <h2 class="section-title" style="color: #d84315;">УЕKIDS</h2>
+        <p style="font-size: 1.2em; margin-bottom: 16px;">Лучшая карточка для детей в мире.</p>
+        
+        <div class="bank-card-container">
+            <div class="bank-card bank-card-kids">
+                <div class="logo">
+                    <span class="logo-ue">УЕ</span><span class="logo-kids">KIDS</span>
+                </div>
+                <div class="disney-ear disney-ear-left"></div>
+                <div class="disney-ear disney-ear-right"></div>
+            </div>
+        </div>
+        
+        <div class="price">900₽/час</div>
+        <p style="font-size: 1.1em;">Обслуживание символическое!</p>
+        <div class="warning">
+            <p><strong>Родитель спокоен.</strong> (а дети нет.)</p>
+        </div>
+        
+        <div class="fun-fact">
+            <div class="fun-fact-title">👶 Финансовая грамотность с детства:</div>
+            <p>Ваш ребенок быстро научится считать деньги, когда увидит списания! 900₽ × 24 часа = всего 21,600₽ в день. Математика - это весело!</p>
+        </div>
+    </div>
+    
+    <!-- Ентернет -->
+    <div class="card">
+        <h2 class="section-title">«Самый Лучший Мобильный Провайдер»</h2>
+        <p style="font-size: 1.3em; margin-bottom: 20px; font-weight: 600;">Ентернет</p>
+        
+        <div class="fun-fact">
+            <div class="fun-fact-title">📱 Почему "Ентернет"?</div>
+            <p>Потому что "Интернет" было слишком мейнстримно. Мы инновационные!</p>
+        </div>
+        
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-title">Ентернет plus</div>
+                <div class="badge">1G+</div>
+                <div class="badge">Первый в России</div>
+                <p style="margin: 16px 0;">50ГБ • 300 минут • 40 SMS</p>
+                <div class="price">299₽/день</div>
+                <p class="small-text">Только для пользователей УЕБАНКА</p>
+                <p class="small-text">Без УЕБАНКА: 999₽/месяц</p>
+                <p class="small-text" style="margin-top: 12px;">*мы знаем что существует уже 5G</p>
+                <div class="fun-fact" style="font-size: 0.9em; padding: 12px;">
+                    <p>💡 299₽/день = 8970₽/месяц. Но звучит дешевле!</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-title">Ентернет MAX</div>
+                <div class="badge">1G++</div>
+                <div class="badge">Безлимит MAX!</div>
+                <p style="margin: 16px 0;">Все функции Plus + безлимитный доступ в мессенджер MAX!</p>
+                <p class="small-text">*ничем не отличается от 1G или 1G+</p>
+                <p class="small-text">**мессенджер не может даже загрузиться при нашем интернете, но опустим этот факт</p>
+                <div class="fun-fact" style="font-size: 0.9em; padding: 12px;">
+                    <p>🚀 1G++ работает на квантовых технологиях! (не работает)</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-title">Ентернет lite</div>
+                <div class="badge">1G</div>
+                <div class="badge">Взрывающий голову</div>
+                <p style="margin: 16px 0;">1ГБ • 12 минут • 67 SMS</p>
+                <div class="price">59₽/день</div>
+                <p class="small-text">Для клиентов УЕБАНКА</p>
+                <div class="warning" style="margin-top: 12px;">
+                    <p><strong>666₽</strong> за активацию и секунду использования без УЕБАНКА</p>
+                </div>
+                <div class="fun-fact" style="font-size: 0.9em; padding: 12px;">
+                    <p>🤔 Почему 67 SMS? Потому что 66 мало, а 68 много!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Другие карточки -->
+    <div class="card">
+        <h2 class="section-title">Другие карточки</h2>
+        
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-title">УЕGoLD</div>
+                
+                <div class="bank-card-container">
+                    <div class="bank-card bank-card-gold">
+                        <div class="logo">УЕG</div>
+                    </div>
+                </div>
+                
+                <p style="margin: 16px 0;">Лучшая карточка для юных кредиторов, пенсионеров, и любителей казино.</p>
+                <div class="price">99,9%</div>
+                <p style="font-weight: 600;">Уникальная месячная ставка для пенсионеров!</p>
+                
+                <div class="fun-fact">
+                    <div class="fun-fact-title">👴 Забота о пенсионерах:</div>
+                    <p>Всего 99.9% в МЕСЯЦ! Это же почти ничего по сравнению с годовыми ставками других банков!</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-title">УЕtravel</div>
+                <p style="margin: 16px 0;">Та же самая GoLD, но с увеличенным обслуживанием.</p>
+                <div class="badge">Для путешественников</div>
+                
+                <div class="fun-fact">
+                    <div class="fun-fact-title">✈️ Путешествуйте с комфортом:</div>
+                    <p>Теперь вы можете брать кредиты не только дома, но и за границей! Правда, там их тоже нужно отдавать.</p>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-title">УЕxpress</div>
+                <p style="margin: 16px 0;">Виртуальная карта для быстрой выдачи ипотек, займов и тд.</p>
+                <p style="font-weight: 600; color: #667eea;">Выдача всего от трех лет!</p>
+                
+                <div class="fun-fact">
+                    <div class="fun-fact-title">⚡ Экспресс-сервис:</div>
+                    <p>"Быстро" - понятие относительное. 3 года - это быстро по космическим меркам!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Линия Заботы -->
+    <div class="card contact-card">
+        <h2 class="section-title">Линия Заботы</h2>
+        <div class="contact-number">666</div>
+        <p style="font-size: 1.2em; margin: 16px 0;">Звонок платный</p>
+        <div class="price">2000₽/минута</div>
+        <p class="small-text" style="color: #1f1f1f;">*отвечает chatGPT</p>
+        <p class="small-text" style="color: #1f1f1f;">**не звоните - человек не ответит</p>
+        
+        <div class="fun-fact">
+            <div class="fun-fact-title">🤖 Преимущества ИИ-поддержки:</div>
+            <p>ChatGPT никогда не устает, не грубит и не переводит на другого оператора. Правда, он может забыть о чем вы говорили 3 минуты назад, но это мелочи!</p>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.3); padding: 16px; border-radius: 12px; margin-top: 20px;">
+            <p style="font-size: 0.95em; color: #1f1f1f;"><strong>🎵 Музыка на удержании:</strong> Только хиты! "Never Gonna Give You Up" 24/7</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; padding: 40px 20px; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 0.9em;">УЕБАНК © 2024 - У Евы Банк</p>
+        <p style="font-size: 0.8em; margin-top: 8px;">Лучший. Наверное.</p>
+        <p style="font-size: 0.75em; margin-top: 16px; font-style: italic;">Все проценты, тарифы и условия являются шуткой. Не пытайтесь повторить это дома.</p>
+    </div>
+</div>
+```
+
+</body>
+</html>
